@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up — WWW.InternetGroup/Restored.com</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #003366;
+    background-image: url('https://images4.alphacoders.com/137/thumb-1920-1375139.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+main {
+    max-width: 450px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+}
+main h2 { text-align: center; color: #007acc; margin-bottom: 25px; }
+input, button { width: 100%; padding: 12px; margin-top: 10px; border-radius: 10px; }
+button { background: linear-gradient(to bottom, #b3e5ff 0%, #80d4ff 100%); border: 2px solid #66ccff; cursor: pointer; }
+button:hover { transform: scale(1.05); }
+</style>
+</head>
+<body>
+<main>
+    <h2>Create Your Account</h2>
+    <form id="signupForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirm" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+</main>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDtkno7jyH2MadXSUj9pXTU3yE-hdMIGRQ",
+    authDomain: "sutpid-d6cef.firebaseapp.com",
+    projectId: "sutpid-d6cef",
+    storageBucket: "sutpid-d6cef.firebasestorage.app",
+    messagingSenderId: "422063828517",
+    appId: "1:422063828517:web:3331760e0c8c38ded499cc"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  document.getElementById("signupForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("confirm").value;
+
+    if (password !== confirm) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    try {
+      // Create user in Firebase Auth
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Add username to Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        username,
+        email,
+        createdAt: new Date()
+      });
+
+      // Optional: update display name in Firebase Auth
+      await updateProfile(user, { displayName: username });
+
+      alert("Account created successfully!");
+      window.location.href = "login.html";
+    } catch (error) {
+      console.error(error);
+      alert("Error: " + error.message);
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — InternetGroup Restored</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #003366;
+    background-image: url('https://w0.peakpx.com/wallpaper/292/711/HD-wallpaper-windows-vista-technoogy-abstract-blue.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.login-box {
+    max-width: 400px;
+    margin: 60px auto;
+    background: rgba(255,255,255,0.6);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+input, button { width: 85%; padding: 12px; margin: 10px 0; border-radius: 10px; }
+button { cursor: pointer; background: linear-gradient(to bottom, #b3e5ff 0%, #80d4ff 100%); border: 2px solid #66ccff; }
+button:hover { transform: scale(1.05); }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don’t have an account? <a href="signup.html">Sign up here</a></p>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDtkno7jyH2MadXSUj9pXTU3yE-hdMIGRQ",
+    authDomain: "sutpid-d6cef.firebaseapp.com",
+    projectId: "sutpid-d6cef",
+    storageBucket: "sutpid-d6cef.firebasestorage.app",
+    messagingSenderId: "422063828517",
+    appId: "1:422063828517:web:3331760e0c8c38ded499cc"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Redirect if already logged in
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location.href = "index.html"; // or dashboard.html if you have one
+    }
+  });
+
+  document.getElementById("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Login successful!");
+      window.location.href = "index.html"; // redirect after login
+    } catch (error) {
+      console.error(error);
+      alert("Login failed: " + error.message);
+    }
+  });
+</script>
+
+</body>
+</html>

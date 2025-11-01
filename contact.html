@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacts — WWW.InternetGroup/Restored.com</title>
+<style>
+/* ---------- BASE STYLING ---------- */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #003366;
+    background-image: url('https://frutigeraeroarchive.org/images/introduction/asadal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+header h1 {
+    font-size: 3em;
+    background: linear-gradient(90deg, #00aaff, #66ffcc, #00aaff);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: flow 6s infinite linear;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------- NAVIGATION ---------- */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #003366;
+    background: linear-gradient(to bottom, #e0f8ff 0%, #b3e5ff 50%, #80d4ff 100%);
+    border: 2px solid #66ccff;
+    border-radius: 15px;
+    padding: 12px 25px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.8), 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #99e0ff 100%);
+    color: #004488;
+    box-shadow: 0 0 15px rgba(102, 204, 255, 0.8);
+    transform: scale(1.05);
+}
+
+nav img { width: 18px; height: 18px; }
+
+/* ---------- MAIN CONTENT ---------- */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+/* ---------- CONTACT CARDS ---------- */
+.contact-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.contact-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #3399ff;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h2 { margin: 0 0 5px; color: #007acc; }
+.contact-info p { margin: 4px 0; line-height: 1.5; color: #003366; }
+.contact-info span { font-weight: bold; }
+
+/* Friend tag */
+.friend-tag { color: #339933; font-weight: bold; font-style: italic; }
+
+/* ---------- RETURN BUTTON ---------- */
+.return-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #b3e5ff 0%, #66ccff 100%);
+    border: 2px solid #3399ff;
+    border-radius: 12px;
+    padding: 12px 25px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.8), 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.return-btn:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #99e0ff 100%);
+    color: #004488;
+    box-shadow: 0 0 15px rgba(102, 204, 255, 0.8);
+    transform: scale(1.05);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(0,128,255,0.3);
+    color: #004488;
+    margin-top: 40px;
+}
+
+.note {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #004488;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Contacts</h1>
+</header>
+
+<nav>
+    <a href="index.html"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_get_started.ico" alt="">Home</a>
+    <a href="about.html"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_info.ico" alt="">About Us</a>
+    <a href="downloads.html"><img src="https://frutigeraeroarchive.org/images/icons/utilities/fdm1.ico" alt="">Downloads</a>
+    <a href="gallery.html"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_photo_gallery.ico" alt="">Gallery</a>
+    <a href="contact.html"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_netcenter.ico" alt="">Contact</a>
+</nav>
+
+<main>
+
+<div class="note">Meet the creators and friends behind WWW.InternetGroup/Restored.com!</div>
+
+<!-- Top profile card: LucasGabriel1395 -->
+<div class="contact-card">
+    <img src="https://pbs.twimg.com/media/F0v3cOGaEDIl_Zz.png" alt="LucasGabriel1395 profile">
+    <div class="contact-info">
+        <h2>LucasGabriel1395</h2>
+        <p><span>Bio:</span> Brazilian, 14 years old, web enthusiast, creator of this site!</p>
+        <p><span>Phone:</span> +55 99 00070‑08</p>
+        <p><span>Fun Fact:</span> Loves glossy buttons and Frutiger Aero aesthetics</p>
+    </div>
+</div>
+
+<!-- Profile card: Yan Thor -->
+<div class="contact-card">
+    <img src="https://static.wikia.nocookie.net/frutigeraero/images/2/2a/Icon1.png/revision/latest/scale-to-width-down/250?cb=20241230231133" alt="Yan Thor profile">
+    <div class="contact-info">
+     
+		<h2>Yan Thor <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Helped with audio and contributed ideas.</p>
+    </div>
+</div>
+
+<!-- Friend cards -->
+
+<!-- Zayon -->
+<div class="contact-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3WFvgx_c9xJ4O8LCu1KTv_tNX7SRo3WLXvT08c_0mY3mRLRsTtYnC7SbKEXqIJ8UATLc&usqp=CAU" alt="Zayon profile">
+    <div class="contact-info">
+        <h2>Zayon <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend and collaborator.</p>
+    </div>
+</div>
+
+<!-- João -->
+<div class="contact-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7U3t-f_Uup4xrNkPIskGIJRiOtIq2kXMDWWgE5adiIgojob97b4E-HEk80UIeCzkuEYg&usqp=CAU" alt="João profile">
+    <div class="contact-info">
+        <h2>João <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- Matheus -->
+<div class="contact-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc_0YrAVxZHn1nqs7eSJDBW0aTzFt0dX9o5h5zzFyIhVm9adVZ8Bvba-J-yJUCkw3TL3w&usqp=CAU" alt="Matheus profile">
+    <div class="contact-info">
+        <h2>Matheus <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- Samuel Dias -->
+<div class="contact-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEuhnPnJKM_AIKF3oG9MUacuFDecvCn8ZsOg&s" alt="Samuel Dias profile">
+    <div class="contact-info">
+        <h2>Samuel Dias <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- João Pedro -->
+<div class="contact-card">
+    <img src="https://preview.redd.it/msn-avatars-of-all-colors-v0-kdmrknxd5uha1.png?width=640&crop=smart&auto=webp&s=a8bd070a5095fb9e5d0f7b22f6071b1d476c1f38" alt="João Pedro profile">
+    <div class="contact-info">
+        <h2>João Pedro <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- Cícero -->
+<div class="contact-card">
+    <img src="https://preview.redd.it/msn-avatars-of-all-colors-v0-i19z4jwd5uha1.png?width=320&crop=smart&auto=webp&s=3643e163e69259632781d93d09d8f85c715b2bba" alt="Cícero profile">
+    <div class="contact-info">
+        <h2>Cícero <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- Gabriela -->
+<div class="contact-card">
+    <img src="https://preview.redd.it/msn-avatars-of-all-colors-v0-0pob2jwd5uha1.png?width=640&crop=smart&auto=webp&s=12bb66305cf244804f4982bfeea800f395267a78" alt="Gabriela profile">
+    <div class="contact-info">
+        <h2>Gabriela <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- Ícaro -->
+<div class="contact-card">
+    <img src="https://preview.redd.it/msn-avatars-of-all-colors-v0-wcy83hxd5uha1.png?width=640&crop=smart&auto=webp&s=fdba0433c84d2b6e01be6de731fdb1a9afb45337" alt="Ícaro profile">
+    <div class="contact-info">
+        <h2>Ícaro <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- Anna -->
+<div class="contact-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5EY4OGVmvu4eMWB0E_im4BxhCTeF9BJIGBw&s" alt="Anna profile">
+    <div class="contact-info">
+        <h2>Anna <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- Maira -->
+<div class="contact-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ28m0yMuoDHvHsK3yTuk0SnVQQul2ZTe5F9g&s" alt="Maira profile">
+    <div class="contact-info">
+        <h2>Maira <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<!-- Cecilia -->
+<div class="contact-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ28m0yMuoDHvHsK3yTuk0SnVQQul2ZTe5F9g&s" alt="Cecilia profile">
+    <div class="contact-info">
+        <h2>Cecilia <span class="friend-tag">(Friend)</span></h2>
+        <p><span>Bio:</span> Friend of the group.</p>
+    </div>
+</div>
+
+<a class="return-btn" href="index.html">Return to Homepage</a>
+
+<div class="note">Explore our team, learn our story, and enjoy some Frutiger Aero goodness!</div>
+
+</main>
+
+<footer>
+    &copy; 2025 WWW.InternetGroup/Restored.com — Designed in the spirit of the Frutiger Aero era.
+</footer>
+
+</body>
+</html>

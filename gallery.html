@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — WWW.InternetGroup/Restored.com</title>
+<style>
+/* ---------- BASE STYLING ---------- */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #003366;
+    background-image: url('https://i.redd.it/if-i-wanted-to-go-to-a-place-irl-that-replicates-the-v0-jban3ge80vbc1.png?width=738&format=png&auto=webp&s=f573ca0f9005284c67b7b90c145cbcf6fe3dfed8');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+header h1 {
+    font-size: 3em;
+    background: linear-gradient(90deg, #00aaff, #66ffcc, #00aaff);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: flow 6s infinite linear;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------- NAVIGATION ---------- */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #003366;
+    background: linear-gradient(to bottom, #e0f8ff 0%, #b3e5ff 50%, #80d4ff 100%);
+    border: 2px solid #66ccff;
+    border-radius: 15px;
+    padding: 12px 25px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.8), 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #99e0ff 100%);
+    color: #004488;
+    box-shadow: 0 0 15px rgba(102, 204, 255, 0.8);
+    transform: scale(1.05);
+}
+
+nav img { width: 18px; height: 18px; }
+
+/* ---------- FLOATING LOGIN/SIGNUP ---------- */
+.auth-buttons {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #003366;
+    background: linear-gradient(to bottom, #b3e5ff 0%, #66ccff 100%);
+    border: 2px solid #3399ff;
+    border-radius: 12px;
+    padding: 10px 18px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.auth-buttons a.signup {
+    background: linear-gradient(to bottom, #ccffcc 0%, #66ff99 100%);
+    border-color: #33cc66;
+}
+.auth-buttons a:hover { transform: scale(1.08); }
+
+/* ---------- MAIN CONTENT ---------- */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+/* ---------- GALLERY GRID ---------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.gallery-card {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08);
+}
+
+/* ---------- RETURN BUTTON ---------- */
+.return-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #b3e5ff 0%, #66ccff 100%);
+    border: 2px solid #3399ff;
+    border-radius: 12px;
+    padding: 12px 25px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.8), 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.return-btn:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #99e0ff 100%);
+    color: #004488;
+    box-shadow: 0 0 15px rgba(102, 204, 255,0.8);
+    transform: scale(1.05);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(0,128,255,0.3);
+    color: #004488;
+    margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<!-- Login / Signup -->
+<div class="auth-buttons">
+  <a href="login.html" class="login"><img src="https://frutigeraeroarchive.org/images/other_links.png" alt="" width="18" height="18">Login</a>
+  <a href="signup.html" class="signup"><img src="https://frutigeraeroarchive.org/images/icons/communication/wlm1.ico" alt="" width="18" height="18">Sign Up</a>
+</div>
+
+<header>
+    <h1>Gallery</h1>
+</header>
+
+<nav>
+    <a href="index.html"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_get_started.ico" alt="">Home</a>
+    <a href="about.html"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_info.ico" alt="">About Us</a>
+    <a href="downloads.html"><img src="https://frutigeraeroarchive.org/images/icons/utilities/fdm1.ico" alt="">Downloads</a>
+    <a href="gallery.html"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_photo_gallery.ico" alt="">Gallery</a>
+    <a href="contact.html"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_netcenter.ico" alt="">Contact</a>
+    <a href="https://exampleforum.com" target="_blank"><img src="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_messenger.ico" alt="">Forum</a>
+</nav>
+
+<main>
+    <div class="gallery-grid">
+        <div class="gallery-card">
+            <a href="https://frutigeraeroarchive.org/images/wallpapers/asadal_stock/thumbnails/asadal_stock_1.jpg" target="_blank">
+                <img src="https://frutigeraeroarchive.org/images/wallpapers/asadal_stock/thumbnails/asadal_stock_1.jpg" alt="Asadal Stock">
+            </a>
+        </div>
+        <div class="gallery-card">
+            <a href="https://frutigeraeroarchive.org/images/wallpapers/windows_vista/thumbnails/windows_vista_13.jpg" target="_blank">
+                <img src="https://frutigeraeroarchive.org/images/wallpapers/windows_vista/thumbnails/windows_vista_13.jpg" alt="Vista Wallpaper 13">
+            </a>
+        </div>
+        <div class="gallery-card">
+            <a href="https://frutigeraeroarchive.org/images/wallpapers/windows_vista/thumbnails/windows_vista_26.jpg" target="_blank">
+                <img src="https://frutigeraeroarchive.org/images/wallpapers/windows_vista/thumbnails/windows_vista_26.jpg" alt="Vista Wallpaper 26">
+            </a>
+        </div>
+        <div class="gallery-card">
+            <a href="https://frutigeraeroarchive.org/images/wallpapers/materialdictionary226/thumbnails/materialdictionary226_1.jpg" target="_blank">
+                <img src="https://frutigeraeroarchive.org/images/wallpapers/materialdictionary226/thumbnails/materialdictionary226_1.jpg" alt="Material Dictionary">
+            </a>
+        </div>
+        <div class="gallery-card">
+            <a href="https://frutigeraeroarchive.org/images/wallpapers/windows_vista_beta/thumbnails/windows_vista_beta_47.jpg" target="_blank">
+                <img src="https://frutigeraeroarchive.org/images/wallpapers/windows_vista_beta/thumbnails/windows_vista_beta_47.jpg" alt="Vista Beta 47">
+            </a>
+        </div>
+        <div class="gallery-card">
+            <a href="https://frutigeraeroarchive.org/images/wallpapers/red_star_os/thumbnails/red_star_os_4.jpg" target="_blank">
+                <img src="https://frutigeraeroarchive.org/images/wallpapers/red_star_os/thumbnails/red_star_os_4.jpg" alt="Red Star OS 4">
+            </a>
+        </div>
+    </div>
+
+    <a class="return-btn" href="index.html">Return to Homepage</a>
+</main>
+
+<footer>
+    &copy; 2025 WWW.InternetGroup/Restored.com — Designed in the spirit of the Frutiger Aero era.
+</footer>
+
+</body>
+</html>
